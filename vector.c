@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <malloc.h>
+#include <stdbool.h>
 #include "vector.h"
 
 vector createVector(int size)
@@ -84,4 +85,71 @@ void deleteVector(vector *v)
     v->data = 0;
     v->size = 0;
     v->capacity = 0;
+}
+
+bool isEmpty(vector *v)
+{
+    return v->size == 0;
+}
+
+bool isFull(vector *v)
+{
+    return v->size == v->capacity;
+}
+
+int getVectorValue(vector *v, size_t i)
+{
+    return v->data[i];
+}
+
+void pushBack(vector *v, int x)
+{
+    if(v->size == v->capacity) // нет места
+    {
+        if(v->capacity == 0)
+        {
+            reserve(v, 1);
+        }
+        else
+        {
+            reserve(v, v->capacity * 2);
+        }
+    }
+
+    v->data[v->size] = x;
+    v->size++;
+}
+
+void popBack(vector *v)
+{
+    if(v->size == 0)
+    {
+        fprintf(stderr, "bad alloc");
+        exit(1);
+    }
+
+    v->size--;
+}
+
+int* atVector(vector *v, size_t index)
+{
+    if(index > v->size)
+    {
+        fprintf(stderr, "IndexError: v->data[index] does not exist");
+        exit(1);
+    }
+    else
+    {
+        return v->data[index];
+    }
+}
+
+int* back(vector *v)
+{
+    return v->data[v->size];
+}
+
+int* front(vector *v)
+{
+    return v->data[v->size];
 }
