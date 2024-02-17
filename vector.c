@@ -2,9 +2,10 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <stdbool.h>
+#include <string.h>
 #include "vector.h"
 
-vector createVector(int size)
+vector createVector(size_t size)
 {
     vector new_vector;
 
