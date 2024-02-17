@@ -49,7 +49,6 @@ void reserve(vector *v, size_t newCapacity)
         if(v->capacity < newCapacity)
         {
             memcpy(new_data, v->data, v->capacity * sizeof(int));
-            v->size = newCapacity;
         }
         else
         {
@@ -58,7 +57,10 @@ void reserve(vector *v, size_t newCapacity)
 
         v->capacity = newCapacity;
 
-        free(v->data);
+        if(v->data != NULL)
+        {
+            free(v->data);
+        }
         v->data = new_data;
     }
     else
