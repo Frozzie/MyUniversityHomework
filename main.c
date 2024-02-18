@@ -9,6 +9,8 @@ void test_pushBack_emptyVector()
 
     pushBack(&v, 1);
     assert(v.size == 1);
+
+    deleteVector(&v);
 }
 
 void test_pushBack_fullVector()
@@ -19,6 +21,8 @@ void test_pushBack_fullVector()
     pushBack(&v, 1);
     assert(v.size == 2);
     assert(v.capacity == 2);
+
+    deleteVector(&v);
 }
 
 void test_popBack_notEmptyVector() 
@@ -30,6 +34,8 @@ void test_popBack_notEmptyVector()
     popBack(&v);
     assert(v.size == 0);
     assert(v.capacity == 1);
+
+    deleteVector(&v);
 }
 
 void test_atVector_notEmptyVector()
@@ -40,6 +46,8 @@ void test_atVector_notEmptyVector()
     int *answ = atVector(&v, 0);
 
     assert(*answ == 1);
+
+    deleteVector(&v);
 }
 
 void test_atVector_requestToLastElement()
@@ -51,6 +59,8 @@ void test_atVector_requestToLastElement()
     int *answ = atVector(&v, 1);
 
     assert(*answ == 2);
+
+    deleteVector(&v);
 }
 
 void test_back_oneElementInVector()
@@ -63,6 +73,8 @@ void test_back_oneElementInVector()
     int *answ = back(&v);
 
     assert(*answ == 2);
+
+    deleteVector(&v);
 }   
 
 void test_front_oneElementInVector()
@@ -74,6 +86,8 @@ void test_front_oneElementInVector()
     int *answ = back(&v);
 
     assert(*answ == 1);
+
+    deleteVector(&v);
 }
 
 void test() 
