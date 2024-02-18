@@ -132,11 +132,11 @@ void pushBackV(vectorVoid *v, void *source)
     {
         if(v->capacity == 0)
         {
-            reserve(v, 1);
+            reserveV(v, 1);
         }
         else
         {
-            reserve(v, v->capacity * 2);
+            reserveV(v, v->capacity * 2);
         }
     }
 
