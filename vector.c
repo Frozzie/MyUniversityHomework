@@ -23,9 +23,12 @@ vector createVector(size_t size)
             exit(1);
         }
     }
+    else
+    {
+        new_vector.data = NULL;
+        new_vector.capacity = 0;
+    }
 
-    new_vector.data = NULL;
-    new_vector.capacity = 0;
     new_vector.size = 0;
 
     return new_vector;
